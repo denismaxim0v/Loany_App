@@ -2,6 +2,7 @@ defmodule LoanyApp.Loans.Loan do
   use Ecto.Schema
   import Ecto.Changeset
   alias LoanyApp.Scoring
+  alias LoanyApp.Cache
 
   schema "loans" do
     field :amount, :integer
@@ -36,6 +37,8 @@ defmodule LoanyApp.Loans.Loan do
 
   def update_changeset(changeset) do
     {:ok, amount} = fetch_change(changeset, :amount)
+
+    Cache.add(:apps, amount)
 
     {_, interest} = Scoring.set_interest_rate(amount)
 

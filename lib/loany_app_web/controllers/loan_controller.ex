@@ -17,7 +17,6 @@ defmodule LoanyAppWeb.LoanController do
   def create(conn, %{"loan" => loan_params}) do
 
     changeset = Loan.generate_changeset(loan_params)
-    IO.inspect changeset
     case Loans.create_loan(changeset) do
       {:ok, loan} ->
         conn

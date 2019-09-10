@@ -11,7 +11,8 @@ defmodule LoanyApp.Application do
       # Start the Ecto repository
       LoanyApp.Repo,
       # Start the endpoint when the application starts
-      LoanyAppWeb.Endpoint
+      LoanyAppWeb.Endpoint,
+      LoanyApp.Cache
       # Starts a worker by calling: LoanyApp.Worker.start_link(arg)
       # {LoanyApp.Worker, arg},
     ]
