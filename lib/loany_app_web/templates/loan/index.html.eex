@@ -1,0 +1,36 @@
+<h1>Listing Loans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Interest rate</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for loan <- @loans do %>
+    <tr>
+      <td><%= loan.amount %></td>
+      <td><%= loan.name %></td>
+      <td><%= loan.phone_number %></td>
+      <td><%= loan.email %></td>
+      <td><%= loan.status %></td>
+      <td><%= loan.interest_rate %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.loan_path(@conn, :show, loan) %></span>
+        <span><%= link "Edit", to: Routes.loan_path(@conn, :edit, loan) %></span>
+        <span><%= link "Delete", to: Routes.loan_path(@conn, :delete, loan), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Loan", to: Routes.loan_path(@conn, :new) %></span>

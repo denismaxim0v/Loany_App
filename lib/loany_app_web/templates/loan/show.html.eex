@@ -1,0 +1,38 @@
+<h1>Show Loan</h1>
+
+<ul>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @loan.amount %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @loan.name %>
+  </li>
+
+  <li>
+    <strong>Phone number:</strong>
+    <%= @loan.phone_number %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @loan.email %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @loan.status %>
+  </li>
+
+  <li>
+    <strong>Interest rate:</strong>
+    <%= @loan.interest_rate %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.loan_path(@conn, :edit, @loan) %></span>
+<span><%= link "Back", to: Routes.loan_path(@conn, :index) %></span>
