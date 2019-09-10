@@ -31,17 +31,22 @@ defmodule LoanyApp.Loans.Loan do
 
   def generate_changeset(params) do
     changeset = changeset(%LoanyApp.Loans.Loan{}, params)
-
-    update_changeset(changeset)
+    case changeset.valid? do
+      true -> update_changeset(changeset)
+      false -> changeset
+    end
+    
   end
 
   def update_changeset(changeset) do
     {:ok, amount} = fetch_change(changeset, :amount)
 
-    Cache.add(:apps, amount)
+    query =
+      case Scoring.evaluate_application(amount) do
+        {:ok, interest} -> %{status: true, interest_rate: interest}
+        {:error, _} -> %{status: false}
+      end
 
-    {_, interest} = Scoring.set_interest_rate(amount)
-
-    scoring(changeset, %{status: true, interest_rate: interest})
+    scoring(changeset, query)
   end
 end

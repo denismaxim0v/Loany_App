@@ -26,9 +26,11 @@ defmodule LoanyApp.Cache do
     GenServer.call(__MODULE__, {:add, name, item})
   end
 
-  def get_maximum() do
+  def get_minimum() do
       {_, list} = find(:apps)
-      Enum.min(list)
+      list = if length(list) < 1, do: [0], else: list
+      list
+      |> Enum.min()
   end
 
   def handle_call({:new, name}, _from, table) do

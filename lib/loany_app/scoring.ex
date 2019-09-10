@@ -2,8 +2,30 @@ defmodule LoanyApp.Scoring do
 
   alias LoanyApp.Cache
 
+  # evaluating the application
+  def evaluate_application(amount) do
+    with {:ok} <- is_lowest(amount),
+         {:ok, rate} <- set_interest_rate(amount) do
+      {:ok, rate}
+    else
+      {:error, reason} -> {:error, reason}
+    end
+  end
+
+  # check if the application amount is larger than the smallest prev application
+  def is_lowest(amount) do
+    IO.inspect Cache.get_minimum()
+    lowest_value_in_cache = Cache.get_minimum()
+
+    case lowest_value_in_cache > amount do
+      false -> Cache.add(:apps, amount)
+              {:ok}
+      true -> {:error, :low}
+    end
+  end
+
+  # set the interest rate
   def set_interest_rate(amount) do
-    IO.inspect Cache.find(:apps)
     if is_prime(amount) do
       {:ok, 9.99}
     else
