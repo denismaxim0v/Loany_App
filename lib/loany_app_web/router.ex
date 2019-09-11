@@ -13,12 +13,22 @@ defmodule LoanyAppWeb.Router do
     plug :accepts, ["json"]
   end
 
+  
+
+  scope "/api", LoanyAppWeb.Api, as: :api  do
+    pipe_through :api
+
+    resources "/loans", ApiController
+  end
   scope "/", LoanyAppWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    resources "/loans", LoanController
+    
+    #resources "/loans", LoanController
+    get "/*path", PageController, :index
   end
+
+  
 
   # Other scopes may use custom stacks.
   # scope "/api", LoanyAppWeb do

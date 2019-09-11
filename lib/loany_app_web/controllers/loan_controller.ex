@@ -30,7 +30,7 @@ defmodule LoanyAppWeb.LoanController do
 
   def show(conn, %{"id" => id}) do
     loan = Loans.get_loan!(id)
-    render(conn, "show.html", loan: loan)
+    render(conn, "index.html", loan: loan)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+require("@babel/polyfill");
+
 
 module.exports = (env, options) => ({
   optimization: {
@@ -15,7 +17,7 @@ module.exports = (env, options) => ({
   entry: {
     './js/app.js': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
   },
-  output: {
+    output: {
     filename: 'app.js',
     path: path.resolve(__dirname, '../priv/static/js')
   },
