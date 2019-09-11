@@ -39,7 +39,7 @@ const Root = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/new" component={NewApplication} />
-        <Route path="/:id" component={Loan} />
+        <Route path="/:id" component={(props) => <Loan {...props} />} />
         <Route path="/:id/rejected" component={Rejected} />
         <Route path="/:id/accepted" component={Accepted} />
       </Switch>

@@ -20,7 +20,7 @@ defmodule LoanyAppWeb.Api.ApiController do
     case Loans.create_loan(changeset) do
       {:ok, loan} ->
         conn
-        |> json(%{loan: "Loan created successfully."})
+        |> json(%{loan: loan.status, id: loan.id})
 
     end
   end
