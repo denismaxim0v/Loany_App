@@ -25,6 +25,7 @@ const HomePage = () => {
             <li>{item.name} {item.id}</li>
             <li>{item.phone_number}</li>
             <li>{item.amount}</li>
+            <li>{item.interest_rate}</li>
             <li>{item.status.toString()}</li>
           </div>
         ))}
