@@ -1,3 +1,102 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: #F5E0DE;
+}
+li {
+    list-style: none;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+}
+
+.nav-container {
+    width: 100%;
+    height: 7em;
+    display: flex;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+  
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 3em;
+    color: black;
+}
+.collapse{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-nav {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
+.form {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 500px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.11), 0 2px 2px 0 rgba(0, 0, 0, 0.062);
+  }
+  form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(26, 74, 231);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }

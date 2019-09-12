@@ -21,7 +21,7 @@ const HomePage = () => {
     <div>
       <ul>
         {data.loans.map(item => (
-          <div key={item.id}>
+          <div className="item" key={item.id}>
             <li>{item.name} {item.id}</li>
             <li>{item.phone_number}</li>
             <li>{item.amount}</li>

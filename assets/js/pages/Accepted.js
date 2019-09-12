@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Accepted = () => {
+const Accepted = (props) => {
     return(
-        <div>
-            <h1>Accepted</h1>
-        </div>
+        <ul>
+            <li>{props.state.loan.name}</li>
+        </ul>
     )
 }
 

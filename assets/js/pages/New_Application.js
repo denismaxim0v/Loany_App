@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {Redirect} from 'react-router'
-import Accepted from './Accepted'
+import { Redirect } from "react-router";
+import Accepted from "./Accepted";
 import axios from "axios";
 
 const New_Application = () => {
@@ -10,7 +10,7 @@ const New_Application = () => {
     phone_number: "",
     name: ""
   });
-  const [loan, setLoan] = useState({id: 0, loan: ""});
+  const [loan, setLoan] = useState({ id: 0, loan: "" });
   const [redirect, setRedirect] = useState(false);
 
   const { amount, email, phone_number, name } = data;
@@ -18,7 +18,6 @@ const New_Application = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    console.log(data);
     axios
       .post(
         "/api/loans",
@@ -26,59 +25,61 @@ const New_Application = () => {
         { headers: { "Content-type": "application/json" } }
       )
       .then(result => {
-        setLoan({id: result.data.id, status: result.data.loan ? 'accepted' : 'rejected'})
-        setRedirect(true)
+        setLoan({
+          id: result.data.id,
+          status: result.data.loan ? "accepted" : "rejected"
+        });
+        setRedirect(true);
       });
   };
-
 
   const onChange = e => {
     setData({ ...data, [e.target.name]: e.target.value });
     console.log(e.target.name, e.target.value);
   };
-  return (
-      redirect ? <Redirect to={`/${loan.id}/accepted`} component={Accepted} /> :
-    <div>
+  return redirect ? (
+    <Redirect to={`/${loan.id}`} />
+  ) : (
+    <div className='form'>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="amount">Enter Amount</label>
-        <input
-          id="amount"
-          name="amount"
-          type="text"
-          value={amount}
-          onChange={onChange}
-        />
-
-        <label htmlFor="email">Enter your email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={onChange}
-        />
-
-        <label htmlFor="phone_number">Phone number</label>
-        <input
-          id="phone_number"
-          name="phone_number"
-          type="text"
-          value={phone_number}
-          onChange={onChange}
-        />
-
-        <label htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
+          placeholder="Name"
           type="text"
           value={name}
           onChange={onChange}
         />
 
-        <button>Send data!</button>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={onChange}
+        />
+
+        <input
+          id="phone_number"
+          name="phone_number"
+          placeholder="Phone Number"
+          type="text"
+          value={phone_number}
+          onChange={onChange}
+        />
+
+        <input
+          id="amount"
+          name="amount"
+          type="text"
+          placeholder="Amount"
+          value={amount}
+          onChange={onChange}
+        />
+
+        <button>Apply</button>
       </form>
-      <p>{status}</p>
     </div>
   );
 };

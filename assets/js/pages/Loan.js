@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Accepted from './Accepted'
+import Rejected from './Rejected'
 
 const Loan = props => {
-  console.log(props.match.params.id);
+
   const [data, setData] = useState({ loan: {}, isFetching: false });
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -21,9 +24,7 @@ const Loan = props => {
 
   return (
     <div>
-      <h1>{props.match.params.id}</h1>
-      <h1>{data.loan.name}</h1>
-      <h1>{data.loan.status}</h1>
+      {data.loan.status ? <Accepted state={data}/> : <Rejected state={data} />}
     </div>
   );
 };
