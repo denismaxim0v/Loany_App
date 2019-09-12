@@ -5,7 +5,6 @@ defmodule LoanyAppWeb.Api.ApiController do
   alias LoanyApp.Loans
 
   def index(conn, _params) do
-    #loans = Repo.all(Loan)
     loans = Loans.list_loans()
     json(conn, %{loans: loans})
   end
@@ -23,6 +22,14 @@ defmodule LoanyAppWeb.Api.ApiController do
         |> json(%{loan: loan.status, id: loan.id})
 
     end
+  end
+
+  def delete(conn, %{"id" => id}) do
+    loan = Loans.get_loan!(id)
+    {:ok, _loan} = Loans.delete_loan(loan)
+
+    conn
+    |> json(%{loan: "loan deleted sucessfully"})
   end
 
 end

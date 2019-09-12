@@ -14,24 +14,11 @@ const Root = () => {
           <Link to={"/"} className="logo">
             LoanyApp
           </Link>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link to={"/"} className="nav-link">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/new"} className="nav-link">
-                  New Application
-                </Link>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route path="/review" component={HomePage} />
+        <Route exact path="/" component={NewApplication} />
         <Route path="/new" component={NewApplication} />
         <Route path="/:id" component={(props) => <Loan {...props} />} />
       </Switch>

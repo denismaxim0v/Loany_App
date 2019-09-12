@@ -5,21 +5,109 @@ html {
     padding: 0;
     margin: 0;
 }
+
+main{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
     background: #F5E0DE;
+    display: flex;
+    justify-content: center;
 }
+#mountPoint{
+    width: 100vw;
+}
+
 li {
     list-style: none;
     padding: 0;
 }
+
 a {
     text-decoration: none;
     color: black;
     font-size: 1.5em;
+}
+
+.item{
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 10rem;
+    font-size: 1.1em;
+}
+
+.item button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(26, 74, 231);
+    width: 10%;
+    border: 0;
+    padding: 15px;
+    margin: 1px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.item h3{
+    font-size: 1.3em;
+}
+
+.item .danger {
+    background: #dd5d5d;
+}
+
+.item li{
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+.loan {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+    padding: 1em;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.11), 0 2px 2px 0 rgba(0, 0, 0, 0.062);
+
+}
+.loans {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    padding: 0;
+    background-color: white;
+    padding: 1em;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.11), 0 2px 2px 0 rgba(0, 0, 0, 0.062);
+}
+.loan ul li{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+.loan h3{
+    width: 20%;
+    text-align: left;
+}
+.loan h1, h2 {
+    text-align: center;
 }
 
 .nav-container {
@@ -39,6 +127,8 @@ a {
 .logo {
     width: 20%;
     display: flex;
+    position: absolute;
+    top: 8%;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -99,4 +189,12 @@ form {
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
+  }
+
+  .container-page{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
   }

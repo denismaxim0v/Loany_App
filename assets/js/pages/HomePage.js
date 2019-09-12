@@ -17,16 +17,25 @@ const HomePage = () => {
     fetchUsers();
   }, []);
 
+  const handle_delete = async id => {
+    const response = await axios.delete(
+      `http://localhost:4000/api/loans/${id}`
+    );
+    console.log(response);
+  };
+
   return (
-    <div>
-      <ul>
+    <div className='container-page'>
+      <ul className="loans">
         {data.loans.map(item => (
-          <div className="item" key={item.id}>
-            <li>{item.name} {item.id}</li>
-            <li>{item.phone_number}</li>
-            <li>{item.amount}</li>
-            <li>{item.interest_rate}</li>
-            <li>{item.status.toString()}</li>
+          <div className="item" key={item.id}> 
+            <li><h3>Name</h3>{item.name}</li>
+            <li><h3>Phone</h3>{item.phone_number}</li>
+            <li><h3>Amount</h3>{item.amount} BGN</li>
+            <li><h3>interest_rate</h3>{item.interest_rate ? item.interest_rate : 'rejected'}</li>
+            <li><h3>Status</h3>{item.status ? 'accepted' : 'rejected'}</li>
+            <button className='danger' onClick={() => handle_delete(item.id)}>Delete</button>
+            <button>Edit</button>
           </div>
         ))}
       </ul>
