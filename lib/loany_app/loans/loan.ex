@@ -2,7 +2,6 @@ defmodule LoanyApp.Loans.Loan do
   use Ecto.Schema
   import Ecto.Changeset
   alias LoanyApp.Scoring
-  alias LoanyApp.Cache
   @derive {Jason.Encoder, only: [:amount, :id, :email, :interest_rate, :name, :phone_number, :status]}
 
   schema "loans" do
