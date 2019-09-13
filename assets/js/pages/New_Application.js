@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router";
-import Accepted from "./Accepted";
 import axios from "axios";
 
 const New_Application = () => {

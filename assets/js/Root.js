@@ -19,7 +19,6 @@ const Root = () => {
       <Switch>
         <Route path="/review" component={HomePage} />
         <Route exact path="/" component={NewApplication} />
-        <Route path="/new" component={NewApplication} />
         <Route path="/:id" component={(props) => <Loan {...props} />} />
       </Switch>
     </BrowserRouter>

@@ -19,30 +19,14 @@ defmodule LoanyAppWeb.Api.ApiController do
       {:ok, loan} ->
         conn
         |> json(%{loan: loan.status, id: loan.id})
-
     end
   end
 
   def delete(conn, %{"id" => id}) do
     loan = Loans.get_loan!(id)
     {:ok, _loan} = Loans.delete_loan(loan)
-
     conn
     |> json(%{loan: "loan deleted sucessfully"})
-  end
-
-  def update(conn, %{"id" => id, "loan" => loan_params}) do
-    loan = Loans.get_loan!(id)
-
-    case Loans.update_loan(loan, loan_params) do
-      {:ok, loan} ->
-        conn
-        |> json(%{loan: loan.status})
-
-
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", loan: loan, changeset: changeset)
-    end
   end
 
 end
