@@ -1,9 +1,10 @@
 /* This file is for your main application css. */
-
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import "./phoenix.css";
 html {
     padding: 0;
     margin: 0;
+    font-family: "Roboto";
 }
 
 main{
@@ -17,7 +18,7 @@ body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    background: #F5E0DE;
+    background: #9f8deec0;
     display: flex;
     justify-content: center;
 }
@@ -40,7 +41,7 @@ a {
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.39);
     height: 10rem;
     font-size: 1.1em;
 }
@@ -66,17 +67,21 @@ a {
 }
 
 .item .danger {
-    background: #dd5d5d;
+    border: 2px solid #dd5d5d;
+    background: white;
+    color: #dd5d5d;
 }
 
 .item li{
-    width: 20%;
+    width: 25%;
     justify-content: center;
     align-items: center;
+    font-size: 1.1em;
+    padding: 0.4em;
 }
 .loan {
     display: flex;
-    width: 60%;
+    width: 65%;
     flex-direction: column;
     background-color: white;
     justify-content: center;
@@ -89,8 +94,8 @@ a {
     top: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 60%;
+    justify-content: space-evenly;
+    width: 80%;
     padding: 0;
     background-color: white;
     padding: 1em;
@@ -106,7 +111,7 @@ a {
     width: 20%;
     text-align: left;
 }
-.loan h1, h2 {
+.loan h1, h2, h4 {
     text-align: center;
 }
 
@@ -133,7 +138,8 @@ a {
     align-items: center;
     text-decoration: none;
     font-size: 3em;
-    color: black;
+    color: white;
+    font-weight: 800;
 }
 .collapse{
     width: 80%;

@@ -37,6 +37,10 @@ const New_Application = () => {
     setData({ ...data, [e.target.name]: e.target.value });
     console.log(e.target.name, e.target.value);
   };
+
+  const handleInvalid = e => {
+    e.target.setCustomValidity("Please match it")
+  }
   return redirect ? (
     <Redirect to={`/${loan.id}`} />
   ) : (
@@ -49,6 +53,7 @@ const New_Application = () => {
           type="text"
           value={name}
           onChange={onChange}
+          required
         />
 
         <input
@@ -58,15 +63,18 @@ const New_Application = () => {
           placeholder="Email"
           value={email}
           onChange={onChange}
+          required
         />
 
         <input
           id="phone_number"
           name="phone_number"
-          placeholder="Phone Number"
-          type="text"
+          placeholder="Phone Number, format: +333333333333"
+          type="tel"
+          pattern='(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)'
           value={phone_number}
           onChange={onChange}
+          required
         />
 
         <input
@@ -76,6 +84,7 @@ const New_Application = () => {
           placeholder="Amount"
           value={amount}
           onChange={onChange}
+          required
         />
 
         <button>Apply</button>
