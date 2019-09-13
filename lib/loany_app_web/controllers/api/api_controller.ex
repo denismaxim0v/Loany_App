@@ -1,6 +1,5 @@
 defmodule LoanyAppWeb.Api.ApiController do
   use LoanyAppWeb, :controller
-  alias LoanyApp.Repo
   alias LoanyApp.Loans.Loan
   alias LoanyApp.Loans
 
@@ -38,8 +37,8 @@ defmodule LoanyAppWeb.Api.ApiController do
     case Loans.update_loan(loan, loan_params) do
       {:ok, loan} ->
         conn
-        |> put_flash(:info, "Loan updated successfully.")
-        |> redirect(to: Routes.loan_path(conn, :show, loan))
+        |> json(%{loan: loan.status})
+
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", loan: loan, changeset: changeset)
