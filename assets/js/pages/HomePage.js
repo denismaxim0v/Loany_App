@@ -21,7 +21,7 @@ const HomePage = () => {
     const response = await axios.delete(
       `http://localhost:4000/api/loans/${id}`
     );
-    console.log(response);
+    setData({loans: data.loans.filter(el => el.id != id), isFetching: true})
   };
 
   return (

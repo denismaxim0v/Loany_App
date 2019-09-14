@@ -72,6 +72,11 @@ a {
     color: #dd5d5d;
 }
 
+.item .danger:hover{
+    background: #dd5d5d;
+    color: white;
+}
+
 .item li{
     width: 25%;
     justify-content: center;
