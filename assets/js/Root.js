@@ -11,8 +11,8 @@ const Root = () => {
     <BrowserRouter>
       <div className="nav-container">
         <nav className="navbar">
-          <Link to={"/"} className="logo">
-            LoanyApp
+          <Link to={"/"} >
+           <img src="https://i.imgur.com/6HpB5Az.png" className="logo"></img>
           </Link>
         </nav>
       </div>
