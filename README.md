@@ -9,8 +9,8 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-## Now the app
+## App
 
 If you want to review the applications
-you might want to visit ['localhost:4000/review'](http://localhost:400/review)
+you need to visit ['localhost:4000/review'](http://localhost:400/review)
 
