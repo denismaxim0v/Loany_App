@@ -29,4 +29,18 @@ defmodule LoanyAppWeb.Api.ApiController do
     |> json(%{loan: "loan deleted sucessfully"})
   end
 
+  def update(conn, %{"id" => id, "loan" => loan_params}) do
+    loan = Loans.get_loan!(id)
+
+    case Loans.update_loan(loan, loan_params) do
+      {:ok, loan} ->
+        conn
+        |> json(%{loan: "updated"})
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        conn
+        |> json(%{lona: "error"})
+    end
+  end
+
 end

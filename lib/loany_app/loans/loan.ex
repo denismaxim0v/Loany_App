@@ -16,8 +16,8 @@ defmodule LoanyApp.Loans.Loan do
   end
 
   @doc false
-  def changeset(%LoanyApp.Loans.Loan{}, attrs) do
-    %LoanyApp.Loans.Loan{}
+  def changeset(loan, attrs) do
+    loan
     |> cast(attrs, [:amount, :name, :phone_number, :email, :status, :interest_rate])
     |> validate_required([:amount, :name, :phone_number, :email])
     |> validate_number(:amount, greater_than: 0)

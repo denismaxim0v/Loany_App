@@ -5,6 +5,7 @@ import '../css/app.css'
 import HomePage from "./pages/HomePage";
 import NewApplication from "./pages/New_Application";
 import Loan from "./pages/Loan";
+import Edit from "./pages/Edit"
 
 const Root = () => {
   return (
@@ -17,9 +18,12 @@ const Root = () => {
         </nav>
       </div>
       <Switch>
+        
         <Route path="/review" component={HomePage} />
         <Route exact path="/" component={NewApplication} />
+        <Route path="/:id/edit" component={(props) => <Edit {...props}/>} />
         <Route path="/:id" component={(props) => <Loan {...props} />} />
+        
       </Switch>
     </BrowserRouter>
   );
