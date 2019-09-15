@@ -33,7 +33,7 @@ defmodule LoanyAppWeb.Api.ApiController do
     loan = Loans.get_loan!(id)
 
     case Loans.update_loan(loan, loan_params) do
-      {:ok} ->
+      {:ok, loan} ->
         conn
         |> json(%{loan: "updated"})
 
